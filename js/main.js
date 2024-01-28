@@ -117,11 +117,11 @@ function displayData(list) {
   for (let i = 0; i < list.length; i++) {
     content += `
       <div class="col-xl-3 col-lg-4 col-md-6 g-4">
-        <div  class="item rounded"">
+        <div onclick="getMealDetails(${list[i].idMeal}),closeSearchForm(),closeNav(),loadLayerBetweenLinks()" class="item rounded"">
           <figure class="m-0">
             <img src="${list[i].strMealThumb}" class="w-100 rounded " alt="${list[i].strMeal}">
           </figure>
-          <div onclick="getMealDetails(${list[i].idMeal}),closeSearchForm(),closeNav(),loadLayerBetweenLinks()" class="recipe-layer cursor-pointer  display-flex rounded">
+          <div  class="recipe-layer cursor-pointer  display-flex rounded">
             <h2 class="fw-bold mt-3 ">${list[i].strMeal}</h2>
           </div>
         </div>
@@ -275,14 +275,15 @@ function displayCategory(list) {
   for (let i = 0; i < list.length; i++) {
     categoryContent += `
       <div class="col-xl-3 col-lg-4 col-md-6 g-4">
-      <div  class="item rounded mb-4">
+      <div onclick="displayMealsCategory('${
+        list[i].strCategory
+      }'),closeNav(),loadLayerBetweenLinks()" class="item rounded mb-4">
         <figure class="m-0">
           <img src="${list[i].strCategoryThumb}" class="w-100 rounded" alt="${
       list[i].strCategory
     }">
         </figure>
-        <div onclick="displayMealsCategory('${
-          list[i].strCategory}'),closeNav(),loadLayerBetweenLinks()" class="recipe-layer cursor-pointer rounded">
+        <div  class="recipe-layer cursor-pointer rounded">
           <h2 class="fw-bold text-center ">${list[i].strCategory}</h2>
           <p class=" text-center">${list[i].strCategoryDescription.slice(
             0,
